@@ -4,12 +4,13 @@
       <v-btn
         text
         v-for="item in items"
-        v-bind:key="item.id"
+        :key="item.id"
         @click="redirect(item.location)"
       >
         {{ item.title }}
       </v-btn>
-      <v-btn text>Search</v-btn>
+
+      <search-form v-if="currentTab === '/'" />
     </v-app-bar>
     <v-main>
       <v-container>
@@ -23,15 +24,30 @@
 </template>
 
 <script>
-import { ref } from "vue";
+import { watch, ref } from "vue";
+import SearchForm from "../components/L2_Molecule/L2_02_SearchForm/SearchForm.vue";
 
 export default {
+  components: {
+    SearchForm,
+  },
   setup() {
     const router = useRouter();
 
-    const redirect = (location) => {
-      router.push(location);
+    const currentTab = ref("/");
+
+    // const setterCurrentTab = computed
+
+    const setCurrentTab = (tab) => {
+      currentTab.value = tab;
     };
+
+    const redirect = (pathName) => {
+      router.push(pathName);
+      setCurrentTab(pathName);
+    };
+
+    watchEffect(() => console.log(currentTab));
 
     let items = ref([
       {
@@ -54,6 +70,8 @@ export default {
     return {
       items,
       redirect,
+      currentTab,
+      setCurrentTab,
     };
   },
 };

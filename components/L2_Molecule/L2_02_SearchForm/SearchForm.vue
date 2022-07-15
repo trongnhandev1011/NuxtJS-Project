@@ -1,0 +1,60 @@
+<template>
+  <v-row justify="center">
+    <v-dialog v-model="dialog" transition="dialog-top-transition">
+      <template v-slot:activator="{ on, attrs }">
+        <v-btn color="primary" dark v-bind="attrs" v-on="on"> Search </v-btn>
+      </template>
+      <v-card class="search-form">
+        <v-row>
+          <v-col
+            class="ml-6 d-flex justify-center align-center search-form-container"
+          >
+            <v-text-field
+              class="search-field"
+              label="Enter your search value"
+              prepend-icon="mdi-magnify"
+            ></v-text-field>
+            <v-btn text class="d-flex align-center ml-2">Search</v-btn>
+          </v-col>
+        </v-row>
+        <v-divider> </v-divider>
+        <div>Recently search:</div>
+      </v-card>
+    </v-dialog>
+  </v-row>
+</template>
+
+<script>
+export default {
+  name: "SearchForm",
+  data() {
+    return {
+      dialog: false,
+      notifications: false,
+      sound: true,
+      widgets: false,
+    };
+  },
+};
+</script>
+
+<style lang="scss">
+.search-form {
+  min-height: initial !important;
+  opacity: 0.8;
+  position: absolute;
+  //   top: 56px !important;
+  left: 0px;
+  top: 56px;
+
+  .search-field {
+    width: 500px !important;
+  }
+
+  .search-form-container {
+    .v-input {
+      flex: initial !important;
+    }
+  }
+}
+</style>

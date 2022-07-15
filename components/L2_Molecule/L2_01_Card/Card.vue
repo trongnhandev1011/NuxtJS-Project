@@ -7,11 +7,11 @@
     >
       <v-img :src="cardContent.image"></v-img>
 
-      <v-card-title :class="{ 'show-btns': hover }" :color="transparent"
+      <v-card-title :class="{ 'show-btns': hover }"
         >{{ cardContent.title }}
       </v-card-title>
 
-      <v-card-subtitle class="{ 'show-btns': hover }" :color="transparent">
+      <v-card-subtitle :class="{ 'show-btns': hover }">
         <div>{{ cardContent.tag }}</div>
       </v-card-subtitle>
 
