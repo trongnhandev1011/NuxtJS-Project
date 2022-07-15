@@ -1,7 +1,12 @@
 <template>
   <v-app dark>
     <v-app-bar :clipped-left="clipped" fixed app>
-      <v-btn text v-for="item in items" @click="redirect(item.location)">
+      <v-btn
+        text
+        v-for="item in items"
+        v-bind:key="item.id"
+        @click="redirect(item.location)"
+      >
         {{ item.title }}
       </v-btn>
       <v-btn text>Search</v-btn>
@@ -19,7 +24,6 @@
 
 <script>
 import { ref } from "vue";
-import { useRouter } from "@nuxtjs/composition-api";
 
 export default {
   setup() {

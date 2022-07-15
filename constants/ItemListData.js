@@ -98,3 +98,5 @@ const ListDataItem = [
     title: "Title 13",
   },
 ];
+
+export default ListDataItem;
