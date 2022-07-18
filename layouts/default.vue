@@ -10,11 +10,15 @@
         {{ item.title }}
       </v-btn>
 
-      <search-form v-if="currentTab === '/'" />
+      <search-form
+        v-if="currentTab === '/'"
+        v-on:search="searchValueHandler"
+        :searchValueArray="searchValueArray"
+      />
     </v-app-bar>
     <v-main>
       <v-container>
-        <Nuxt />
+        <nuxt-child :searchedCardList="searchedCardList" />
       </v-container>
     </v-main>
     <v-footer :absolute="!fixed" app>
@@ -24,22 +28,49 @@
 </template>
 
 <script>
-import { watch, ref } from "vue";
 import SearchForm from "../components/L2_Molecule/L2_02_SearchForm/SearchForm.vue";
+import ListDataItem from "../constants/ItemListData";
 
 export default {
   components: {
     SearchForm,
   },
   setup() {
+    let searchValueArray = ref([]);
+    let searchedCardList = ref(ListDataItem);
+
+    try {
+      searchValueArray = localStorage.getItem("searchValueArray")
+        ? ref(JSON.parse(localStorage.getItem("searchValueArray")).value)
+        : ref([]);
+
+      if (searchValueArray.length == 0) {
+        localStorage.setItem("searchValueArray", JSON.stringify([]));
+      }
+    } catch (e) {
+      console.log(e);
+    }
+
     const router = useRouter();
 
     const currentTab = ref("/");
 
-    // const setterCurrentTab = computed
-
     const setCurrentTab = (tab) => {
       currentTab.value = tab;
+    };
+
+    const searchValueHandler = (value) => {
+      if (value) {
+        searchValueArray.value.push(value);
+      }
+      localStorage.setItem(
+        "searchValueArray",
+        JSON.stringify(searchValueArray)
+      );
+      searchedCardList = ListDataItem.filter((item) =>
+        item.title.toUpperCase().includes(value.toUpperCase().trim())
+      );
+      console.log(searchedCardList);
     };
 
     const redirect = (pathName) => {
@@ -72,6 +103,9 @@ export default {
       redirect,
       currentTab,
       setCurrentTab,
+      searchedCardList,
+      searchValueArray,
+      searchValueHandler,
     };
   },
 };

@@ -1,19 +1,18 @@
 <template>
-  <card-list :itemList="itemListData" />
+  <card-list :searchedCardList="searchedCardList" />
 </template>
 
 <script>
 import CardList from "../../L3_Organism/L3_01_CardList/CardList";
-import { ref } from "vue";
-import ListDataItem from "../../../constants/ItemListData";
 export default {
   name: "HomePageTemplate",
-  setup() {
-    const itemListData = ref(ListDataItem);
-
-    // console.log(ListDataItem);
+  props: {
+    searchedCardList: Array,
+  },
+  setup(props) {
+    let searchedCardList = props.searchedCardList;
     return {
-      itemListData,
+      searchedCardList,
     };
   },
   components: {

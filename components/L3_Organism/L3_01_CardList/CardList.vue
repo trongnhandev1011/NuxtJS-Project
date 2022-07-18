@@ -2,7 +2,7 @@
   <div>
     <v-row class="card-list-container">
       <v-col
-        v-for="item in itemList"
+        v-for="item in searchedCardList"
         v-bind:key="item.id"
         cols="3"
         class="card-list-row"
@@ -18,16 +18,15 @@ import Card from "../../L2_Molecule/L2_01_Card/Card";
 export default {
   name: "CardList",
   props: {
-    itemList: Array,
+    searchedCardList: Array,
   },
   components: {
     Card,
   },
   setup(props) {
-    let itemList = props.itemList;
-
+    let searchedCardList = props.searchedCardList;
     return {
-      itemList,
+      searchedCardList,
     };
   },
 };

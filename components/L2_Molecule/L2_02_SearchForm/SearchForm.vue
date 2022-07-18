@@ -13,26 +13,56 @@
               class="search-field"
               label="Enter your search value"
               prepend-icon="mdi-magnify"
+              v-model="searchValue"
             ></v-text-field>
-            <v-btn text class="d-flex align-center ml-2">Search</v-btn>
+            <v-btn
+              text
+              class="d-flex align-center ml-2"
+              @click="searchValueHandler(searchValue)"
+              >Search</v-btn
+            >
           </v-col>
         </v-row>
         <v-divider> </v-divider>
-        <div>Recently search:</div>
+        <div class="ml-5">Recently search:</div>
+        <v-btn
+          class="ml-5 mr-3"
+          v-for="value in searchValueArray"
+          :key="value.id"
+        >
+          {{ value }}
+        </v-btn>
       </v-card>
     </v-dialog>
   </v-row>
 </template>
 
 <script>
+import { toRefs } from "vue";
+
 export default {
   name: "SearchForm",
-  data() {
+  emits: ["search"],
+  props: {
+    searchValueArray: Array,
+  },
+  setup(props, context) {
+    let searchValueArray = props.searchValueArray;
+    let searchValue = ref("");
+    const searchValueHandler = function (searchValue) {
+      context.emit("search", searchValue);
+    };
+
+    try {
+      console.log(searchValueArray);
+    } catch (e) {
+      console.log(e);
+    }
+
     return {
-      dialog: false,
-      notifications: false,
-      sound: true,
-      widgets: false,
+      searchValue,
+      searchValueHandler,
+      searchValueArray,
     };
   },
 };
