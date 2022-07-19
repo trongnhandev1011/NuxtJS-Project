@@ -2,7 +2,14 @@
   <v-row justify="center" class="mt-0">
     <v-dialog transition="dialog-top-transition">
       <template v-slot:activator="{ on, attrs }">
-        <v-btn color="primary" dark v-bind="attrs" v-on="on"> Search </v-btn>
+        <v-btn
+          style="background: white; color: #ed247f"
+          dark
+          v-bind="attrs"
+          v-on="on"
+        >
+          Search
+        </v-btn>
       </template>
       <v-card class="search-form">
         <v-row>
@@ -18,12 +25,13 @@
             <v-btn
               text
               class="d-flex align-center ml-2"
+              style="background-color: white; color: #ed247f"
               @click="searchValueHandler(searchValue)"
               >Search</v-btn
             >
           </v-col>
         </v-row>
-        <v-divider> </v-divider>
+        <v-divider style="border-color: #ed247f"> </v-divider>
         <div class="ml-5">Recently search:</div>
         <v-btn
           class="ma-5"
@@ -86,5 +94,11 @@ export default {
       flex: initial !important;
     }
   }
+}
+
+.v-divider {
+  border-color: #ed247f !important;
+  border-width: medium 0 0 0;
+  border-radius: 5px;
 }
 </style>

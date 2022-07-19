@@ -1,7 +1,7 @@
 <template>
   <v-app dark>
-    <v-app-bar app>
-      <v-row class="ml-10 nav-bar">
+    <v-app-bar class="nav-bar" app>
+      <v-row class="ml-10">
         <v-btn
           text
           v-for="item in items"
@@ -111,7 +111,7 @@ export default {
 </script>
 
 <style lang="scss">
-.v-sheet {
+.nav-bar {
   background-color: #ed247f !important;
 }
 </style>

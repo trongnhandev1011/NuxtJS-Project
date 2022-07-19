@@ -115,6 +115,10 @@ export default {
   cursor: pointer;
 }
 
+.start-icon {
+  font-size: 3rem;
+}
+
 .deco-img-line {
   width: 300px;
   position: absolute;
