@@ -1,9 +1,13 @@
 <template>
-  <v-row> contact </v-row>
+  <contact-page-template />
 </template>
 
 <script>
+import ContactPageTemplate from "../../components/L4_Template/L4_01_ContactPageTemplate/ContactPage.template.vue";
 export default {
-  name: "InspirePage",
+  name: "ContactPage",
+  components: {
+    ContactPageTemplate,
+  },
 };
 </script>
