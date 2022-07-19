@@ -1,19 +1,21 @@
 <template>
   <v-app dark>
     <v-app-bar app>
-      <v-btn
-        text
-        v-for="item in items"
-        :key="item.id"
-        @click="redirect(item.location)"
-      >
-        {{ item.title }}
-      </v-btn>
-      <search-form
-        v-if="currentPath === '/'"
-        v-on:search="searchValueHandler"
-        :searchValueArray="searchValueArray"
-      />
+      <v-row class="ml-10 nav-bar">
+        <v-btn
+          text
+          v-for="item in items"
+          :key="item.id"
+          @click="redirect(item.location)"
+        >
+          {{ item.title }}
+        </v-btn>
+        <search-form
+          v-if="currentPath === '/'"
+          v-on:search="searchValueHandler"
+          :searchValueArray="searchValueArray"
+        />
+      </v-row>
     </v-app-bar>
     <v-main>
       <v-container>
@@ -89,11 +91,6 @@ export default {
       },
       {
         icon: "mdi-chart-bubble",
-        title: "Detail",
-        location: "/detail",
-      },
-      {
-        icon: "mdi-chart-bubble",
         title: "Contact",
         location: "/contact",
       },
@@ -112,3 +109,9 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+.v-sheet {
+  background-color: #ed247f !important;
+}
+</style>
