@@ -25,7 +25,12 @@
         </v-row>
         <v-divider> </v-divider>
         <div class="ml-5">Recently search:</div>
-        <v-btn class="ma-5" v-for="value in searchValueArray" :key="value.id">
+        <v-btn
+          class="ma-5"
+          style="text-transform: none"
+          v-for="value in searchValueArray.filter((item, index) => index < 20)"
+          :key="value.id"
+        >
           {{ value }}
         </v-btn>
       </v-card>
@@ -34,8 +39,6 @@
 </template>
 
 <script>
-import { toRefs } from "vue";
-
 export default {
   name: "SearchForm",
   emits: ["search"],

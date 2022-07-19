@@ -73,7 +73,7 @@ export default {
     const searchValueHandler = (value) => {
       searchValue.value = value;
       if (value) {
-        searchValueArray.value.push(value);
+        searchValueArray.value.unshift(value);
       }
       localStorage.setItem(
         "searchValueArray",
