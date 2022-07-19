@@ -10,10 +10,11 @@ export default {
     searchedCardList: Array,
   },
   setup(props) {
-    let searchedCardList = props.searchedCardList;
-    return {
-      searchedCardList,
-    };
+    // console.log(props.searchedCardList);
+    // let searchedCard = ref(props.searchedCardList);
+    // return {
+    //   searchedCard,
+    // };
   },
   components: { HomePageTemplate },
 };

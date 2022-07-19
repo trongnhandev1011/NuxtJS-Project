@@ -25,11 +25,7 @@
         </v-row>
         <v-divider> </v-divider>
         <div class="ml-5">Recently search:</div>
-        <v-btn
-          class="ml-5 mr-3"
-          v-for="value in searchValueArray"
-          :key="value.id"
-        >
+        <v-btn class="ma-5" v-for="value in searchValueArray" :key="value.id">
           {{ value }}
         </v-btn>
       </v-card>
@@ -52,12 +48,6 @@ export default {
     const searchValueHandler = function (searchValue) {
       context.emit("search", searchValue);
     };
-
-    try {
-      console.log(searchValueArray);
-    } catch (e) {
-      console.log(e);
-    }
 
     return {
       searchValue,

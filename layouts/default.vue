@@ -9,7 +9,6 @@
       >
         {{ item.title }}
       </v-btn>
-
       <search-form
         v-if="currentTab === '/'"
         v-on:search="searchValueHandler"
@@ -18,7 +17,7 @@
     </v-app-bar>
     <v-main>
       <v-container>
-        <nuxt-child :searchedCardList="searchedCardList" />
+        <nuxt-child :searchedCardList="filterCardList" />
       </v-container>
     </v-main>
     <v-footer :absolute="!fixed" app>
@@ -38,6 +37,7 @@ export default {
   setup() {
     let searchValueArray = ref([]);
     let searchedCardList = ref(ListDataItem);
+    let searchValue = ref("");
 
     try {
       searchValueArray = localStorage.getItem("searchValueArray")
@@ -59,7 +59,19 @@ export default {
       currentTab.value = tab;
     };
 
+    const filterCardList = computed(() => {
+      if (!searchValue) return ListDataItem;
+      else {
+        return ListDataItem.filter((item) =>
+          item.title
+            .toUpperCase()
+            .includes(searchValue.value.toUpperCase().trim())
+        );
+      }
+    });
+
     const searchValueHandler = (value) => {
+      searchValue.value = value;
       if (value) {
         searchValueArray.value.push(value);
       }
@@ -67,18 +79,12 @@ export default {
         "searchValueArray",
         JSON.stringify(searchValueArray)
       );
-      searchedCardList = ListDataItem.filter((item) =>
-        item.title.toUpperCase().includes(value.toUpperCase().trim())
-      );
-      console.log(searchedCardList);
     };
 
     const redirect = (pathName) => {
       router.push(pathName);
       setCurrentTab(pathName);
     };
-
-    watchEffect(() => console.log(currentTab));
 
     let items = ref([
       {
@@ -106,6 +112,8 @@ export default {
       searchedCardList,
       searchValueArray,
       searchValueHandler,
+      filterCardList,
+      searchValue,
     };
   },
 };

@@ -24,10 +24,10 @@ export default {
     Card,
   },
   setup(props) {
-    let searchedCardList = props.searchedCardList;
-    return {
-      searchedCardList,
-    };
+    // let searchedCardList = ref(props.searchedCardList);
+    // return {
+    //   searchedCardList,
+    // };
   },
 };
 </script>
