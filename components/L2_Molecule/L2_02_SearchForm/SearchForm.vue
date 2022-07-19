@@ -1,6 +1,6 @@
 <template>
   <v-row justify="center">
-    <v-dialog v-model="dialog" transition="dialog-top-transition">
+    <v-dialog transition="dialog-top-transition">
       <template v-slot:activator="{ on, attrs }">
         <v-btn color="primary" dark v-bind="attrs" v-on="on"> Search </v-btn>
       </template>
@@ -30,6 +30,7 @@
           style="text-transform: none"
           v-for="value in searchValueArray.filter((item, index) => index < 20)"
           :key="value.id"
+          @click="recentSearchValueClickHandler(value)"
         >
           {{ value }}
         </v-btn>
@@ -52,10 +53,16 @@ export default {
       context.emit("search", searchValue);
     };
 
+    const recentSearchValueClickHandler = (value) => {
+      searchValue.value = value;
+      searchValueHandler(value);
+    };
+
     return {
       searchValue,
       searchValueHandler,
       searchValueArray,
+      recentSearchValueClickHandler,
     };
   },
 };

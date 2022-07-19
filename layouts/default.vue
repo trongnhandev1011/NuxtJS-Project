@@ -1,6 +1,6 @@
 <template>
   <v-app dark>
-    <v-app-bar :clipped-left="clipped" fixed app>
+    <v-app-bar app>
       <v-btn
         text
         v-for="item in items"
@@ -10,7 +10,7 @@
         {{ item.title }}
       </v-btn>
       <search-form
-        v-if="currentTab === '/'"
+        v-if="currentPath === '/'"
         v-on:search="searchValueHandler"
         :searchValueArray="searchValueArray"
       />
@@ -20,7 +20,7 @@
         <nuxt-child :searchedCardList="filterCardList" />
       </v-container>
     </v-main>
-    <v-footer :absolute="!fixed" app>
+    <v-footer app>
       <span>&copy; {{ new Date().getFullYear() }}</span>
     </v-footer>
   </v-app>
@@ -52,12 +52,8 @@ export default {
     }
 
     const router = useRouter();
-
-    const currentTab = ref("/");
-
-    const setCurrentTab = (tab) => {
-      currentTab.value = tab;
-    };
+    const route = useRoute();
+    const currentPath = computed(() => route.fullPath);
 
     const filterCardList = computed(() => {
       if (!searchValue) return ListDataItem;
@@ -72,7 +68,7 @@ export default {
 
     const searchValueHandler = (value) => {
       searchValue.value = value;
-      if (value) {
+      if (value && searchValueArray.value[0] !== value) {
         searchValueArray.value.unshift(value);
       }
       localStorage.setItem(
@@ -83,7 +79,6 @@ export default {
 
     const redirect = (pathName) => {
       router.push(pathName);
-      setCurrentTab(pathName);
     };
 
     let items = ref([
@@ -107,13 +102,12 @@ export default {
     return {
       items,
       redirect,
-      currentTab,
-      setCurrentTab,
       searchedCardList,
       searchValueArray,
       searchValueHandler,
       filterCardList,
       searchValue,
+      currentPath,
     };
   },
 };

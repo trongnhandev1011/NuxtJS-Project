@@ -6,6 +6,7 @@
         v-bind:key="item.id"
         cols="3"
         class="card-list-row"
+        @click="cardClickHandler(item.id)"
       >
         <card :cardContent="item" />
       </v-col>
@@ -24,10 +25,15 @@ export default {
     Card,
   },
   setup(props) {
-    // let searchedCardList = ref(props.searchedCardList);
-    // return {
-    //   searchedCardList,
-    // };
+    const router = useRouter();
+
+    const cardClickHandler = (id) => {
+      router.push(`/detail/${id}`);
+    };
+
+    return {
+      cardClickHandler,
+    };
   },
 };
 </script>

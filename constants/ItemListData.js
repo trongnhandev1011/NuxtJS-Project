@@ -4,49 +4,61 @@ const ListDataItem = [
     image:
       "https://i.picsum.photos/id/212/318/196.jpg?hmac=WOMLS6Qws8xdZVUv9Bg-39psHfeViBBR-yIFQWBtxbM",
     tag: "#Tag1",
-    title: "Title 1",
+    title: "Bai hat nay la ve tinh yeu",
+    author: "Ho Trong Nhan",
+    description:
+      "Nulla laborum enim deserunt eiusmod minim labore. Adipisicing minim adipisicing cupidatat eu. Sit ea voluptate duis aute id velit aliquip anim culpa nostrud consequat ex pariatur nisi. Deserunt deserunt irure occaecat consequat fugiat dolor est consectetur pariatur proident adipisicing culpa. Laboris non minim sit deserunt duis. Laboris eiusmod enim voluptate ut. Est non adipisicing reprehenderit occaecat occaecat id cupidatat nostrud esse nisi reprehenderit ea.",
   },
   {
     id: 2,
     image:
       "https://i.picsum.photos/id/212/318/196.jpg?hmac=WOMLS6Qws8xdZVUv9Bg-39psHfeViBBR-yIFQWBtxbM",
     tag: "#Tag2",
-    title: "Title 2",
+    title: "Tinh ca tinh ta",
+    author: "KIS",
+    description:
+      "Nulla laborum enim deserunt eiusmod minim labore. Adipisicing minim adipisicing cupidatat eu. Sit ea voluptate duis aute id velit aliquip anim culpa nostrud consequat ex pariatur nisi. Deserunt deserunt irure occaecat consequat fugiat dolor est consectetur pariatur proident adipisicing culpa. Laboris non minim sit deserunt duis. Laboris eiusmod enim voluptate ut. Est non adipisicing reprehenderit occaecat occaecat id cupidatat nostrud esse nisi reprehenderit ea.",
   },
   {
     id: 3,
     image:
       "https://i.picsum.photos/id/212/318/196.jpg?hmac=WOMLS6Qws8xdZVUv9Bg-39psHfeViBBR-yIFQWBtxbM",
     tag: "#Tag3",
-    title: "Title 3",
+    title: "One Kiss",
+    author: "Dua Lipa",
+    description:
+      "Nulla laborum enim deserunt eiusmod minim labore. Adipisicing minim adipisicing cupidatat eu. Sit ea voluptate duis aute id velit aliquip anim culpa nostrud consequat ex pariatur nisi. Deserunt deserunt irure occaecat consequat fugiat dolor est consectetur pariatur proident adipisicing culpa. Laboris non minim sit deserunt duis. Laboris eiusmod enim voluptate ut. Est non adipisicing reprehenderit occaecat occaecat id cupidatat nostrud esse nisi reprehenderit ea.",
   },
   {
     id: 4,
     image:
       "https://i.picsum.photos/id/212/318/196.jpg?hmac=WOMLS6Qws8xdZVUv9Bg-39psHfeViBBR-yIFQWBtxbM",
     tag: "#Tag4",
-    title: "Title 4",
+    title: "Perfect",
+    author: "One Direction",
+    description:
+      "Nulla laborum enim deserunt eiusmod minim labore. Adipisicing minim adipisicing cupidatat eu. Sit ea voluptate duis aute id velit aliquip anim culpa nostrud consequat ex pariatur nisi. Deserunt deserunt irure occaecat consequat fugiat dolor est consectetur pariatur proident adipisicing culpa. Laboris non minim sit deserunt duis. Laboris eiusmod enim voluptate ut. Est non adipisicing reprehenderit occaecat occaecat id cupidatat nostrud esse nisi reprehenderit ea.",
   },
   {
     id: 5,
     image:
       "https://i.picsum.photos/id/212/318/196.jpg?hmac=WOMLS6Qws8xdZVUv9Bg-39psHfeViBBR-yIFQWBtxbM",
     tag: "#Tag5",
-    title: "Title 5",
+    title: "Ben tren tang lau",
   },
   {
     id: 6,
     image:
       "https://i.picsum.photos/id/212/318/196.jpg?hmac=WOMLS6Qws8xdZVUv9Bg-39psHfeViBBR-yIFQWBtxbM",
     tag: "#Tag6",
-    title: "Title 5",
+    title: "Xin chao ca nha",
   },
   {
     id: 7,
     image:
       "https://i.picsum.photos/id/212/318/196.jpg?hmac=WOMLS6Qws8xdZVUv9Bg-39psHfeViBBR-yIFQWBtxbM",
     tag: "#Tag7",
-    title: "Title 6",
+    title: "Linda gach ong",
   },
   {
     id: 8,
