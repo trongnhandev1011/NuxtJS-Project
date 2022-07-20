@@ -23,7 +23,6 @@ export default defineNuxtConfig({
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   // components: {
@@ -53,7 +52,7 @@ export default defineNuxtConfig({
       dark: true,
       themes: {
         dark: {
-          primary: colors.blue.darken2,
+          primary: "#ed247f",
           accent: colors.grey.darken3,
           secondary: colors.amber.darken3,
           info: colors.teal.lighten1,
