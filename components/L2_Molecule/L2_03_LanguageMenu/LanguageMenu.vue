@@ -11,7 +11,7 @@
           style="cursor: pointer"
           v-for="(language, index) in languages"
           :key="index"
-          @click="changeLanguage(language)"
+          @click="changeLanguage(language.lang)"
         >
           <v-list-item-title>{{ language.title }}</v-list-item-title>
         </v-list-item>
@@ -44,9 +44,9 @@ export default {
   data() {
     return {
       languages: [
-        { title: "English" },
-        { title: "Japan" },
-        { title: "Korean" },
+        { title: "English", lang: "en" },
+        { title: "Japan", lang: "ja" },
+        { title: "Korean", lang: "ko" },
       ],
     };
   },
