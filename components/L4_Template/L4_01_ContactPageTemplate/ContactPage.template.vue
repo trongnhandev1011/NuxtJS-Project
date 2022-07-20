@@ -2,7 +2,8 @@
   <div>
     <div class="mt-10">
       <div style="font-size: 3rem; display: flex; justify-content: center">
-        Contact Us
+        <!-- Contact Us -->
+        {{ $vuetify.lang.t("$vuetify.contact_page.contact_us") }}
       </div>
       <div
         style="
@@ -12,17 +13,18 @@
           font-weight: 300;
         "
       >
-        Any question or remarks? Just write us a message!
+        <!-- Any question or remarks? Just write us a message! -->
+        {{ $vuetify.lang.t("$vuetify.contact_page.sub_title") }}
       </div>
     </div>
     <div style="display: flex; justify-content: center">
       <v-row class="form-container">
         <v-col cols="3" class="form-image">
           <div style="font-size: 1.5rem" class="mb-1 ml-2 mt-4">
-            Contact Information
+            {{ $vuetify.lang.t("$vuetify.contact_page.contact_information") }}
           </div>
           <div style="font-size: 0.8rem" class="ml-2">
-            Fill up the form and our staffs will support you within 24h
+            {{ $vuetify.lang.t("$vuetify.contact_page.fill_up_message") }}
           </div>
           <div class="mt-8 ml-2">
             <v-icon aria-hidden="false"> mdi-phone</v-icon>
@@ -34,7 +36,9 @@
           </div>
           <div class="mt-8 ml-2">
             <v-icon aria-hidden="false"> mdi-map-marker </v-icon>
-            <span class="ml-2">District 1, Ho Chi Minh</span>
+            <span class="ml-2">{{
+              $vuetify.lang.t("$vuetify.contact_page.location")
+            }}</span>
           </div>
         </v-col>
         <v-col cols="9" class="form">

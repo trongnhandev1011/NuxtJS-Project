@@ -1,6 +1,10 @@
 import colors from "vuetify/es5/util/colors";
 import { defineNuxtConfig } from "@nuxt/bridge";
 
+import en from "./i18n/en";
+import ja from "./i18n/ja";
+import ko from "./i18n/ko";
+
 export default defineNuxtConfig({
   ssr: false,
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -48,6 +52,10 @@ export default defineNuxtConfig({
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
     customVariables: ["~/assets/variables.scss"],
+    lang: {
+      locales: { en, ja, ko },
+      current: "en",
+    },
     theme: {
       dark: true,
       themes: {

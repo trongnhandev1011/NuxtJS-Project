@@ -15,6 +15,7 @@
           v-on:search="searchValueHandler"
           :searchValueArray="searchValueArray"
         />
+        <language-menu />
       </v-row>
     </v-app-bar>
     <v-main>
@@ -31,10 +32,12 @@
 <script>
 import SearchForm from "../components/L2_Molecule/L2_02_SearchForm/SearchForm.vue";
 import ListDataItem from "../constants/ItemListData";
+import LanguageMenu from "../components/L2_Molecule/L2_03_LanguageMenu/LanguageMenu.vue";
 
 export default {
   components: {
     SearchForm,
+    LanguageMenu,
   },
   setup() {
     let searchValueArray = ref([]);
