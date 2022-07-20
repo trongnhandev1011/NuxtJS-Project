@@ -1,5 +1,5 @@
 <template>
-  <validation-observer ref="observer" v-slot="{ invalid }">
+  <validation-observer ref="observer">
     <form @submit.prevent="submit">
       <v-row justify="center mt-5">
         <v-col cols="5">
@@ -40,13 +40,11 @@
             name="phoneNumber"
             :rules="{
               required: true,
-              digits: 7,
-              // regex: '^(71|72|74|76|81|82|84|85|86|87|88|89)\\d{5}$',
+              regex: '^(09)\\d{8}$',
             }"
           >
             <v-text-field
               v-model="phoneNumber"
-              :counter="7"
               :error-messages="errors"
               label="Phone Number"
               required
@@ -68,16 +66,11 @@
           </validation-provider>
         </v-col>
       </v-row>
-      <v-row justify="center mt-10">
-        <v-btn
-          class="mr-4 submit-btn"
-          type="submit"
-          :disabled="invalid"
-          style="background-color: #ed247f"
-        >
+      <v-row justify="center mt-15">
+        <v-btn class="mr-4 submit-btn" type="submit" @click="submit">
           submit
         </v-btn>
-        <v-btn @click="clearFields"> clear </v-btn>
+        <v-btn @click="clear"> clear </v-btn>
       </v-row>
     </form>
   </validation-observer>
@@ -124,33 +117,36 @@ export default {
     ValidationProvider,
     ValidationObserver,
   },
-  setup() {
-    let firstName = ref("");
-    let lastName = ref("");
-    let phoneNumber = ref("");
-    let email = ref("");
+  data: () => ({
+    firstName: "",
+    lastName: "",
+    phoneNumber: "",
+    email: "",
+  }),
 
-    const clearFields = () => {
-      firstName.value = "";
-      lastName.value = "";
-      phoneNumber.value = "";
-      email.value = "";
+  methods: {
+    submit() {
+      this.$refs.observer.validate().then((success) => {
+        if (!success) {
+          return;
+        }
+        alert("Form has been submitted!");
+      });
+    },
+    clear() {
+      this.firstName = "";
+      this.lastName = "";
+      this.phoneNumber = "";
+      this.email = "";
       this.$refs.observer.reset();
-    };
-
-    return {
-      firstName,
-      lastName,
-      phoneNumber,
-      email,
-      clearFields,
-    };
+    },
   },
 };
 </script>
 
 <style lang="scss">
 .submit-btn {
+  background-color: #ed247f !important;
   span {
     color: white;
   }

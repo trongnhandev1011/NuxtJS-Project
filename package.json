@@ -21,6 +21,7 @@
     "@nuxt/bridge": "npm:@nuxt/bridge-edge@^3.0.0-27628751.3df21c7",
     "@nuxtjs/vuetify": "^1.12.3",
     "sass": "^1.53.0",
-    "sass-loader": "^10.3.1"
+    "sass-loader": "^10.3.1",
+    "yup": "^0.32.11"
   }
 }
