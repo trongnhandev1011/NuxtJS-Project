@@ -63,7 +63,7 @@ export default {
 <style lang="scss">
 .form-container {
   margin-top: 30px;
-  height: 400px;
+  height: 420px;
   border-radius: 20px;
   font-size: 0.9rem;
   width: 70%;

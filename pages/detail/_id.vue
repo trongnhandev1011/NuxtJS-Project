@@ -81,7 +81,6 @@ export default {
     const route = useRoute();
     const id = computed(() => route.params.id);
     const currentItem = ListDataItem.find((item) => item.id == id.value);
-    console.log(currentItem);
 
     return {
       currentItem,

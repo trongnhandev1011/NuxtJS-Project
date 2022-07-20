@@ -1,7 +1,7 @@
 <template>
   <validation-observer ref="observer">
     <form @submit.prevent="submit">
-      <v-row justify="center mt-5">
+      <v-row justify="center" class="mt-5">
         <v-col cols="5">
           <validation-provider
             v-slot="{ errors }"
@@ -66,7 +66,39 @@
           </validation-provider>
         </v-col>
       </v-row>
-      <v-row justify="center mt-15">
+      <v-row justify="center">
+        <v-col cols="5">
+          <validation-provider
+            v-slot="{ errors }"
+            name="address"
+            :rules="{
+              required: true,
+            }"
+          >
+            <v-text-field
+              v-model="address"
+              :error-messages="errors"
+              label="Address"
+              required
+            ></v-text-field>
+          </validation-provider>
+        </v-col>
+        <v-col cols="5">
+          <validation-provider
+            v-slot="{ errors }"
+            name="country"
+            rules="required"
+          >
+            <v-text-field
+              v-model="country"
+              :error-messages="errors"
+              label="Country"
+              required
+            ></v-text-field>
+          </validation-provider>
+        </v-col>
+      </v-row>
+      <v-row class="mt-4 align-center justify-center">
         <v-btn class="mr-4 submit-btn" type="submit" @click="submit">
           submit
         </v-btn>
@@ -122,6 +154,8 @@ export default {
     lastName: "",
     phoneNumber: "",
     email: "",
+    address: "",
+    country: "",
   }),
 
   methods: {
@@ -138,6 +172,8 @@ export default {
       this.lastName = "";
       this.phoneNumber = "";
       this.email = "";
+      this.address = "";
+      this.country = "";
       this.$refs.observer.reset();
     },
   },
